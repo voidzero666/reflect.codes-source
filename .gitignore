@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/sh.exe.stackdump
+/weave/freetype/out/build/x64-Debug

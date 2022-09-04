@@ -1,0 +1,21 @@
+#pragma once
+
+#include <windows.h>
+#include <d3d9.h>
+#include <d3dx9.h>
+#include <SDKDDKVer.h>
+#include <stdio.h>
+#include <tchar.h>
+#include <winhttp.h>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <cstdio>
+#include <time.h>
+#include <cstring>
+#include <iostream>
+#include <TlHelp32.h> 
+#include <intrin.h>
+#include <memory>
+#include <fstream>
+#include "md5.h"
