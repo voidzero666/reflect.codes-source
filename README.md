@@ -1,7 +1,7 @@
 # reflect.codes / ecstasy.vip source code
 
-Self leak due to me leaving the csgo scene to focus on more important stuff in my life.
+Self leak due devs leaving the csgo scene to focus on more important stuff in their life.
 
-Special thanks and shoutout to: trail, asy.
+Check Releases, Everything should be Explained in there.
 
-~ yours truely, an internet stranger ;)
+~ yours truly, an internet stranger ;)
