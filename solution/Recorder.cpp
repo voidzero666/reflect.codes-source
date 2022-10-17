@@ -52,26 +52,26 @@ void color_picker4(const char* name, color_t& clr)
 	clr[3] = std::clamp(static_cast<int>(color.w * 255), 0, 255);
 	*/
 }
-
-static auto world_circle = [](Vector location, float radius, color_t col = color_t(127, 30, 255, 140), bool filled = false) {
-	static constexpr float Step = PI * 2.0f / 60;
-	std::vector<ImVec2> points;
-	for (float lat = 0.f; lat <= PI * 2.0f; lat += Step)
-	{
-		const auto& point3d = Vector(sin(lat), cos(lat), 0.f) * radius;
-		Vector point2d;
-		if (Math::WorldToScreen(location + point3d, point2d))
-			points.push_back(ImVec2(point2d.x, point2d.y));
-	}
-	auto flags_backup = ImGui::GetBackgroundDrawList()->Flags;
-	ImGui::GetBackgroundDrawList()->Flags |= ImDrawListFlags_AntiAliasedFill;
-	if (filled)
-		ImGui::GetBackgroundDrawList()->AddConvexPolyFilled(points.data(), points.size(), col.u32());
-	else
-		ImGui::GetBackgroundDrawList()->AddPolyline(points.data(), points.size(), col.u32(), true, 2.f);
-
-	ImGui::GetBackgroundDrawList()->Flags = flags_backup;
-};
+#define world_circle
+//static auto world_circle = [](Vector location, float radius, color_t col = color_t(127, 30, 255, 140), bool filled = false) {
+//	static constexpr float Step = PI * 2.0f / 60;
+//	std::vector<ImVec2> points;
+//	for (float lat = 0.f; lat <= PI * 2.0f; lat += Step)
+//	{
+//		const auto& point3d = Vector(sin(lat), cos(lat), 0.f) * radius;
+//		Vector point2d;
+//		if (Math::WorldToScreen(location + point3d, point2d))
+//			points.push_back(ImVec2(point2d.x, point2d.y));
+//	}
+//	auto flags_backup = ImGui::GetBackgroundDrawList()->Flags;
+//	ImGui::GetBackgroundDrawList()->Flags |= ImDrawListFlags_AntiAliasedFill;
+//	if (filled)
+//		ImGui::GetBackgroundDrawList()->AddConvexPolyFilled(points.data(), points.size(), col.u32());
+//	else
+//		ImGui::GetBackgroundDrawList()->AddPolyline(points.data(), points.size(), col.u32(), true, 2.f);
+//
+//	ImGui::GetBackgroundDrawList()->Flags = flags_backup;
+//};
 
 struct Frame
 {
