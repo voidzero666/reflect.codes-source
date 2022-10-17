@@ -4,4 +4,9 @@ Self leak due to devs leaving the csgo scene to focus on more important stuff in
 
 Check Releases, Everything should be Explained in there.
 
-~ yours truly, an internet stranger ;)
+## LUA Docs: [HERE](https://github.com/EcstasyVip/Ecstasy_LUA_API/wiki)
+
+~ yours truly, an internet stranger ;) 
+
+
+

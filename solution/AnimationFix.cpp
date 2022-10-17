@@ -471,7 +471,7 @@ void CMAnimationFix::animation_info::update_animations(animation* record, animat
 
 	record->resolved = false;
 
-	if (distance > 8192.f) {
+	if (distance > 8192.f) { //do not run resolver code on players we can not possibly hit
 		record->velocity = player->GetVelocity();
 		record->didshot = false;
 		record->safepoints = false;
@@ -480,7 +480,7 @@ void CMAnimationFix::animation_info::update_animations(animation* record, animat
 		return;
 	}
 
-	if (!previous) //no previous record found so possibly came from dormancy
+	if (!previous) //no previous record found so possibly came from dormancy => no need to reanimate missing ticks
 	{
 		record->velocity = player->GetVelocity();
 
@@ -517,7 +517,7 @@ void CMAnimationFix::animation_info::update_animations(animation* record, animat
 
 
 	//we do not need to simulate fakelag
-	if (record->updateDelay <= 1) {
+	if (record->updateDelay <= 1) { 
 		player->GetVelocity() = record->velocity;
 		player->GetAbsVelocity() = record->velocity;
 
@@ -541,8 +541,8 @@ void CMAnimationFix::animation_info::update_animations(animation* record, animat
 
 		bool on_ground = record->flags & FL_ONGROUND;
 		////////////////////////////
-	   //SETUP RESOLVER ROTATIONS//
-	  ////////////////////////////
+	   	//SETUP RESOLVER ROTATIONS//
+	  	////////////////////////////
 		static auto& enable_bone_cache_invalidation = **reinterpret_cast<bool**>(csgo->ptrboneCacheInvalidation);
 
 		//// make a backup of globals
@@ -791,7 +791,7 @@ void CMAnimationFix::animation_info::update_animations(animation* record, animat
 	}
 }
 
-void CMAnimationFix::simStepUpdate(IBasePlayer* player)
+void CMAnimationFix::simStepUpdate(IBasePlayer* player) //update the fakelag simulation by one tick
 {
 	// make a backup of globals
 	const auto backup_frametime = interfaces.global_vars->frametime;
@@ -952,6 +952,7 @@ void CMAnimationFix::UpdatePlayers()
 	}
 }
 
+//resolving function used when we do not need to simulate fakelag ticks
 void CMAnimationFix::rotationResolve(IBasePlayer* player, animation* record, animation* previous)
 {
 	static auto& enable_bone_cache_invalidation = **reinterpret_cast<bool**>(csgo->ptrboneCacheInvalidation);
@@ -1294,7 +1295,7 @@ void CMAnimationFix::UpdateFakeState()
 }
 */
 
-
+// local anims are very shit and need improvement
 void CMAnimationFix::UpdateFakeState()
 {
 	if ((!interfaces.engine->IsConnected() && !interfaces.engine->IsInGame()) || !csgo->local) {

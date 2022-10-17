@@ -1841,7 +1841,8 @@ void Movement::PixelSurfAlign(CUserCmd* cmd)
 		}
 
 		Vector ang_diff = { cmd->viewangles.x, yang, 0.f };
-
+		
+		//This right here if just movement fix that one of our funny devs spent 2 weeks reverse engineering (:D) but you can make it work easily if you know basic trigonometry 
 		autoalign_adjustfsmove(cmd, ang_diff);
 
 #ifdef _DEBUG
