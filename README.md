@@ -20,5 +20,6 @@ Special thanks and shoutout to: trail, asy.
 - Animation resolver does not select proper side
 - Lag compensation does not re-calculate some networked variables properly
 - LUA is extremely prone to crashing especially while drawing
+- Compiler error in Recorder.cpp world_circle lambda expression
 
 Fixing these is left as an exercise to the reader.
