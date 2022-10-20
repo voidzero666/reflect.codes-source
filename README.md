@@ -21,5 +21,8 @@ Special thanks and shoutout to: trail, asy.
 - Lag compensation does not re-calculate some networked variables properly
 - LUA is extremely prone to crashing especially while drawing
 - Compiler error in Recorder.cpp world_circle lambda expression
+- Jumpbug does not work properly 90% of the time
+- Keybinds constantly changing when selected
+- Leaking handles on thread creation
 
 Fixing these is left as an exercise to the reader.
