@@ -19,5 +19,6 @@ Special thanks and shoutout to: trail, asy.
 - Hideshots does not work as intended
 - Animation resolver does not select proper side
 - Lag compensation does not re-calculate some networked variables properly
+- LUA is extremely prone to crashing especially while drawing
 
 Fixing these is left as an exercise to the reader.
