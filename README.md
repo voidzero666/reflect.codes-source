@@ -24,5 +24,6 @@ Special thanks and shoutout to: trail, asy.
 - Jumpbug does not work properly 90% of the time
 - Keybinds constantly changing when selected
 - Leaking handles on thread creation
+- Autowall trash
 
 Fixing these is left as an exercise to the reader.
